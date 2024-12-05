@@ -12,20 +12,28 @@ function drop(event) {
     const draggedElement = document.getElementById(data);
     const targetBox = event.target.closest('.box');
 
+    console.log('Drop event triggered');
+    console.log('Dragged Element:', draggedElement);
+    console.log('Target Box:', targetBox);
+
     if (targetBox) {
         targetBox.appendChild(draggedElement);
+        console.log('Element appended to target box');
         combineContents(targetBox);
     }
 }
-
 function combineContents(box) {
-    const content1 = box.querySelector('.content1');
-    const content2 = box.querySelector('.content2');
+    const ingredient1 = box.querySelector('.ingredient1');
+    const ingredient2 = box.querySelector('.ingredient2');
+    const ingredient3 = box.querySelector('.ingredient3');
 
-    if (content1 && content2) {
-        // Remove the original contents
-        content1.remove();
-        content2.remove();
+    console.log('Ingredients in box:', ingredient1, ingredient2, ingredient3);
+
+    if (ingredient1 && ingredient2 && ingredient3) {
+        // Remove one instance of each ingredient
+        ingredient1.remove();
+        ingredient2.remove();
+        ingredient3.remove();
 
         // Create the new combined content
         const newContent = document.createElement('div');
@@ -36,8 +44,11 @@ function combineContents(box) {
 
         // Append the new content to the box
         box.appendChild(newContent);
+
+        console.log('New content created and appended:', newContent);
     }
 }
+
 
 // Touch event handlers
 function touchStart(event) {
