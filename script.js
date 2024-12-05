@@ -36,9 +36,10 @@ function combineContents(box) {
         ingredient3.remove();
 
         // Create the new combined content
-        const newContent = document.createElement('div');
+        const newContent = document.createElement('img');
         newContent.classList.add('content', 'food1');
-        newContent.textContent = 'Food 1';
+        newContent.src = 'images/hakau.png'; // Set the path to your image
+        newContent.alt = 'Food 1';
         newContent.draggable = true;
         newContent.ondragstart = drag;
 
